@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="java.util.Map"/>
+        <import type="java.util.List"/>
+        <import type="android.util.SparseArray"/>
+        <import type="archmages.github.databindingsamples.model.User"/>
+        <variable
+            name="list"
+            type="List&lt;String>"/>
+        <variable
+            name="sparseArray"
+            type="SparseArray&lt;String>"/>
+        <variable
+            name="map"
+            type="Map&lt;String,String>"/>
+        <variable
+            name="userList"
+            type="List&lt;User>"/>
+        <variable
+            name="index"
+            type="int"/>
+        <variable
+            name="key"
+            type="String"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{list[index]}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{sparseArray[index]}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{map[`张三`]}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userList[index].firstName}"/>
+    </LinearLayout>
+</layout>

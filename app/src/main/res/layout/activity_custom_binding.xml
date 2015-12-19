@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data class=".MyCustomBinding">
+
+        <import type="archmages.github.databindingsamples.model.User"/>
+        <import type="archmages.github.databindingsamples.utils.StringUtil"/>
+        <import type="archmages.github.databindingsamples.utils.Constants"/>
+        <import type="android.view.View"/>
+
+        <variable
+            name="gender"
+            type="String"/>
+
+        <variable
+            name="user"
+            type="User"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="fsdafasdf"
+            android:text="@{StringUtil.chainFirstAndLastName(user.firstName, user.lastName)}"/>
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{gender?? Constants.MALE}"
+            android:textSize='@{gender.equals(Constants.MALE)? @dimen/text_size_big:@dimen/text_size_small}'
+            tools:text="Boy"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="成年人"
+            android:visibility="@{user.getAge() &lt; 18? View.VISIBLE:View.GONE}"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="buttonClick"
+            android:text="按钮"/>
+    </LinearLayout>
+</layout>
